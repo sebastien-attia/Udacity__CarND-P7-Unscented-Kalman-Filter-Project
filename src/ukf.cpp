@@ -102,7 +102,13 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
       /**
       Initialize state.
       */
-      x_ << meas_package.raw_measurements_, 0, 0, 0;
+      VectorXd z = VectorXd(2);
+      z = meas_package.raw_measurements_;
+      if (fabs(z(0) < epsilon_) && fabs(z(1) < epsilon_)) {
+        x_ << epsilon_, epsilon_, 0, 0, 0;
+      } else {
+        x_ << meas_package.raw_measurements_, 0, 0, 0;
+      }
     }
 
     // done initializing, no need to predict or update
@@ -190,7 +196,7 @@ void UKF::Prediction(double delta_t) {
       double px_p, py_p;
 
       //avoid division by zero
-      if (fabs(yawd) > 0.001) {
+      if (fabs(yawd) > epsilon_) {
         px_p = p_x + v/yawd * ( sin (yaw + yawd*delta_t) - sin(yaw));
         py_p = p_y + v/yawd * ( cos(yaw) - cos(yaw+yawd*delta_t) );
       } else {
@@ -437,7 +443,7 @@ VectorXd ConvertToCartesian(const VectorXd& x_state) {
 
   double px = cos_theta * rho;
   double py = sin_theta * rho;
-  double v = sqrt(rho_dot * sin_theta + rho_dot * sin_theta);
+  double v = sqrt(pow(rho_dot * sin_theta, 2) + pow(rho_dot * sin_theta, 2));
   double yaw = 0;
   double yaw_dot = 0;
 

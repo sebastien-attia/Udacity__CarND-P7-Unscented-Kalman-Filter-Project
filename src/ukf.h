@@ -104,6 +104,7 @@ public:
   void UpdateRadar(MeasurementPackage meas_package);
 
 private:
+  double epsilon_ = 0.001;
   void Update(VectorXd& z, MatrixXd& Zsig, int n_z, MatrixXd& R);
 };
 
