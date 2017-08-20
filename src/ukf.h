@@ -104,7 +104,7 @@ public:
   void UpdateRadar(MeasurementPackage meas_package);
 
 private:
-  void Update(VectorXd& z, MatrixXd& Zsig, int n_z);
+  void Update(VectorXd& z, MatrixXd& Zsig, int n_z, MatrixXd& R);
 };
 
 #endif /* UKF_H */
