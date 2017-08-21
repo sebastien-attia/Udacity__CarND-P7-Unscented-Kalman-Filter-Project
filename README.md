@@ -1,7 +1,17 @@
 # Unscented Kalman Filter Project Starter Code
 Self-Driving Car Engineer Nanodegree Program
 
-In this project utilize an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements. Passing the project requires obtaining RMSE values that are lower that the tolerance outlined in the project reburic. 
+This repository is an implementation of the Unscented Kalman Filter.
+
+**Running examples of the UKF:**
+
+![UKF Dataset 1](https://github.com/sebastien-attia/Udacity__CarND-P7-Unscented-Kalman-Filter-Project/blob/master/images/UKF%20Dataset%201.gif)
+
+**And**
+
+![UKF Dataset 1](https://github.com/sebastien-attia/Udacity__CarND-P7-Unscented-Kalman-Filter-Project/blob/master/images/UKF%20Dataset%202.gif)
+
+In this project utilize an Unscented Kalman Filter to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
 This project involves the Term 2 Simulator which can be downloaded [here](https://github.com/udacity/self-driving-car-sim/releases)
 
